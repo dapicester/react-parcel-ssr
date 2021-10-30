@@ -1,0 +1,44 @@
+{
+  "name": "react-parcel-ssr",
+  "version": "1.0.0",
+  "author": "Paolo D'Apice <paolo@sidechef.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.14",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet-async": "^1.1.2",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "parcel": "^2.0.0",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "parcel app/index.html",
+    "watch": "parcel watch",
+    "build": "parcel build",
+    "server": "nodemon dist/server",
+    "start": "concurrently \"yarn:watch\" \"yarn:server\" --kill-others-on-fail -k",
+    "start:prod": "yarn build && yarn server"
+  },
+  "targets": {
+    "app": {
+      "source": "app/index.html"
+    },
+    "server": {
+      "source": "server/index.js",
+      "engines": {
+        "node": ">= 12"
+      }
+    }
+  }
+}
