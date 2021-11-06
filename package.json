@@ -18,7 +18,13 @@
   },
   "devDependencies": {
     "concurrently": "^6.3.0",
+    "eslint": "^8.2.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.26.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
     "parcel": "^2.0.0",
+    "prettier": "2.4.1",
     "rimraf": "^3.0.2"
   },
   "scripts": {
@@ -28,7 +34,9 @@
     "build": "parcel build",
     "server": "nodemon dist/server",
     "start": "concurrently \"yarn:watch\" \"yarn:server\" --kill-others-on-fail -k",
-    "start:prod": "yarn build && yarn server"
+    "start:prod": "yarn build && yarn server",
+    "lint": "eslint .",
+    "prepare": "husky install"
   },
   "targets": {
     "app": {
@@ -40,5 +48,8 @@
         "node": ">= 12"
       }
     }
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

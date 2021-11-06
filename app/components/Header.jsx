@@ -36,10 +36,14 @@ export default () => (
     <Brand>Stream all the things!</Brand>
     <Menu>
       <MenuLink>
-        <NavLink to="/" exact activeClassName="active">Home</NavLink>
+        <NavLink to="/" exact activeClassName="active">
+          Home
+        </NavLink>
       </MenuLink>
       <MenuLink>
-        <NavLink to="/about" exact activeClassName="active">About</NavLink>
+        <NavLink to="/about" exact activeClassName="active">
+          About
+        </NavLink>
       </MenuLink>
     </Menu>
   </Header>

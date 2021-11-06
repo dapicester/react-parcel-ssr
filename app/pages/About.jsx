@@ -6,11 +6,8 @@ const About = () => (
     <Helmet>
       <title>About</title>
     </Helmet>
-    <div>
-      This is the about page.
-    </div>
+    <div>This is the about page.</div>
   </Page>
 )
 
 export default About
-

@@ -15,9 +15,7 @@ const middleware = (req, res) => {
         <App />
       </StaticRouter>
     )
-    const markup = ReactDOMServer.renderToString(
-      sheet.collectStyles(app)
-    )
+    const markup = ReactDOMServer.renderToString(sheet.collectStyles(app))
     const styleTags = sheet.getStyleTags()
     const html = generateHtml(markup, styleTags)
     res.send(html)
