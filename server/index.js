@@ -1,19 +1,10 @@
-import express from 'express'
 import morgan from 'morgan'
-import middleware from './middleware'
-
-const server = express()
+import app from './app'
 
 // Enable logging.
-server.use(morgan('tiny'))
-
-// Expose the public directory as /dist and point to the browser version.
-server.use(express.static('dist/app'))
-
-server.get('/*', middleware)
+app.use(morgan('tiny'))
 
 const port = process.env.PORT || 3000
-
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`Listening on port ${port} ...`)
 })

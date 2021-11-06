@@ -17,26 +17,39 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "concurrently": "^6.3.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.26.1",
     "husky": "^7.0.4",
+    "jest": "^27.3.1",
     "lint-staged": "^11.2.6",
     "parcel": "^2.0.0",
     "prettier": "2.4.1",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "superagent": "^6.1.0",
+    "supertest": "^6.1.6"
   },
   "scripts": {
+    "build": "parcel build",
     "clean": "rimraf dist",
     "dev": "parcel app/index.html",
-    "watch": "parcel watch",
-    "build": "parcel build",
+    "lint": "eslint .",
+    "prepare": "husky install",
     "server": "nodemon dist/server",
     "start": "concurrently \"yarn:watch\" \"yarn:server\" --kill-others-on-fail -k",
     "start:prod": "yarn build && yarn server",
-    "lint": "eslint .",
-    "prepare": "husky install"
+    "test": "concurrently -c yellow,blue \"yarn:test-*\"",
+    "test-app": "cross-env NODE_ENV=app_test jest --testPathPattern=app/",
+    "test-server": "cross-env NODE_ENV=server_test jest --testPathPattern=server/",
+    "watch": "parcel watch"
   },
   "targets": {
     "app": {
